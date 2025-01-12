@@ -6,7 +6,6 @@ interface WineCardProps {
     productName: string;
     productDescription: string;
     productImage: string;
-    addToCartCTA: () => void;
     currentPriceCashAmount?: number;
     currentPriceCashCurrencyCode?: string;
     wasPriceCashAmount?: number;
@@ -101,13 +100,13 @@ export const WineCard = (props: WineCardProps) => {
             productDescription, productImage, 
             currentPriceCashAmount, currentPriceCashCurrencyCode,
             wasPriceCashAmount, wasPriceCashCurrencyCode,
-            wasPricePoints, currentPricePoints, addToCartCTA
+            wasPricePoints, currentPricePoints
         } = props;
 
     return (
-        <div>
-            <a href={cardLink} >
-                {productTag && <div>{productTag}</div>}
+        <div className="card-container">
+            <a className="wrapping-link" href={cardLink} >
+                {productTag && <div className="tag-wrapper"><span className="tag-text">{productTag}</span></div>}
                 <div>
                     <h4>
                         {productName}
@@ -134,7 +133,7 @@ export const WineCard = (props: WineCardProps) => {
                 </div>
             </a>
             <div>
-                <button type="button" onClick={addToCartCTA}>
+                <button type="button">
                     <span>ADD</span>
                 </button>
             </div>

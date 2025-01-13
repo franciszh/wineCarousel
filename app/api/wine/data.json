@@ -1,7 +1,7 @@
 {
   "data": {
     "search": {
-      "total": 4,
+      "total": 5,
       "products": [
         {
           "name": "Prohibition Liquor Company",
@@ -24,6 +24,30 @@
             },
             "pointsPrice": {
               "amount": 15000
+            }
+          }
+        },
+        {
+          "name": "Penfolds",
+          "description": "Penfolds Bin 707 Cabernet Sauvignon 2022 Lunar New Year (Snake Gift Box)",
+          "imageSrc": "https://unsplash.it/200/200/?random",
+          "tag": "sale",
+          "wasPrice": {
+            "cashPrice": {
+              "currencyCode": "AUD",
+              "amount": 850.00
+            },
+            "pointsPrice": {
+              "amount": 170000
+            }
+          },
+          "currentPrice": {
+            "cashPrice": {
+              "currencyCode": "AUD",
+              "amount": 750.00
+            },
+            "pointsPrice": {
+              "amount": 150000
             }
           }
         },

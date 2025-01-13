@@ -1,4 +1,5 @@
 import { WineCard } from "@/components/ui/wineCard";
+import { Carousel } from "@/components/ui/carousel"
 import { WineData } from "@/types/wineApi"
 
 
@@ -21,24 +22,30 @@ export default async function WineCarousel() {
 
   return (
     <div className="main-container">
-      {wineAPIData?.data?.search?.products?.map((product) => {
-        const { name, description, imageSrc, tag, wasPrice, currentPrice} = product;
-        // destruct currentPrice
-        const { cashPrice: curCashPrice, pointsPrice: curPointsPrice } = currentPrice;
-        const { amount: curCashAmount, currencyCode: curCashCode } = curCashPrice;
-        const { amount: curPointsAmount } = curPointsPrice;
-        // destruct optional wasPrice Object
-        const { cashPrice: wasCashPrice, pointsPrice: wasPointsPrice } = wasPrice || {};
-        const { amount: wasCashAmount, currencyCode: wasCashCode } = wasCashPrice || {};
-        const { amount: wasPointsAmount } = wasPointsPrice || {};
-        return <WineCard
-                key={name} cardLink="#" productName={name}
-                productDescription={description} productImage={imageSrc} productTag={tag}
-                currentPriceCashAmount={curCashAmount} currentPriceCashCurrencyCode={curCashCode}
-                currentPricePoints={curPointsAmount} wasPriceCashAmount={wasCashAmount}
-                wasPriceCashCurrencyCode={wasCashCode} wasPricePoints={wasPointsAmount}
-              />;
-      })}
+      <Carousel>
+        { wineAPIData?.data?.search?.products?.map((product) => {
+          const { name, description, imageSrc, tag, wasPrice, currentPrice} = product;
+          // destruct currentPrice
+          const { cashPrice: curCashPrice, pointsPrice: curPointsPrice } = currentPrice;
+          const { amount: curCashAmount, currencyCode: curCashCode } = curCashPrice;
+          const { amount: curPointsAmount } = curPointsPrice;
+          // destruct optional wasPrice Object
+          const { cashPrice: wasCashPrice, pointsPrice: wasPointsPrice } = wasPrice || {};
+          const { amount: wasCashAmount, currencyCode: wasCashCode } = wasCashPrice || {};
+          const { amount: wasPointsAmount } = wasPointsPrice || {};
+          return (
+            <div key={name} className="carousel-item-wrapper">
+              <WineCard
+                  cardLink="#" productName={name}
+                  productDescription={description} productImage={imageSrc} productTag={tag}
+                  currentPriceCashAmount={curCashAmount} currentPriceCashCurrencyCode={curCashCode}
+                  currentPricePoints={curPointsAmount} wasPriceCashAmount={wasCashAmount}
+                  wasPriceCashCurrencyCode={wasCashCode} wasPricePoints={wasPointsAmount}
+                />
+            </div> 
+          );
+        })}
+      </Carousel>
     </div>
   );
 }

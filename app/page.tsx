@@ -1,34 +1,44 @@
-import { WineCard } from "@/components/ui/wineCard"
+import { WineCard } from "@/components/ui/wineCard";
+import { WineData } from "@/types/wineApi"
 
-const baseProps = {
-  cardLink: "#",
-  productName: "Royal Solute",
-  productDescription: "Royal Salute 21 Year Old Blended Scotch Whisky Miami Polo Edition 700ml (Gift Box)",
-  productImage: "https://unsplash.it/200/200/?random",
-  currentPriceCashAmount: 500,
-  currentPriceCashCurrencyCode: "AUD",
-  wasPriceCashAmount: 600,
-  wasPriceCashCurrencyCode: "AUD",
-  wasPricePoints: 50000,
-  productTag: "Sale",
-  currentPricePoints: 40000
-};
 
-const baseProps1 = {
-  cardLink: "#",
-  productName: "Royal Solute",
-  productDescription: "Royal Salute 21 Year Old Blended Scotch Whisky Miami Polo Edition 700ml (Gift Box)",
-  productImage: "https://unsplash.it/200/200/?random",
-  currentPriceCashAmount: 500,
-  currentPriceCashCurrencyCode: "AUD",
-  currentPricePoints: 40000
-};
+const API_URL = process.env.WINE_API_URL;
 
-export default function WineCarousel() {
+async function getWineData(): Promise<WineData> {
+  // Assumption: wine data is not time-sensative so that the API fetch
+  // is cached for 1 hour to reduce the server stress in the real production env
+  const res = await fetch(API_URL!, { next: { revalidate: 3600 } });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return await res.json();
+}
+
+export default async function WineCarousel() {
+  // To do an error boundary to handle the thrown error
+  const wineAPIData = await getWineData();
+  
+
   return (
     <div className="main-container">
-      <WineCard {...baseProps}/>
-      <WineCard {...baseProps1}/>
+      {wineAPIData?.data?.search?.products?.map((product) => {
+        const { name, description, imageSrc, tag, wasPrice, currentPrice} = product;
+        // destruct currentPrice
+        const { cashPrice: curCashPrice, pointsPrice: curPointsPrice } = currentPrice;
+        const { amount: curCashAmount, currencyCode: curCashCode } = curCashPrice;
+        const { amount: curPointsAmount } = curPointsPrice;
+        // destruct optional wasPrice Object
+        const { cashPrice: wasCashPrice, pointsPrice: wasPointsPrice } = wasPrice || {};
+        const { amount: wasCashAmount, currencyCode: wasCashCode } = wasCashPrice || {};
+        const { amount: wasPointsAmount } = wasPointsPrice || {};
+        return <WineCard
+                key={name} cardLink="#" productName={name}
+                productDescription={description} productImage={imageSrc} productTag={tag}
+                currentPriceCashAmount={curCashAmount} currentPriceCashCurrencyCode={curCashCode}
+                currentPricePoints={curPointsAmount} wasPriceCashAmount={wasCashAmount}
+                wasPriceCashCurrencyCode={wasCashCode} wasPricePoints={wasPointsAmount}
+              />;
+      })}
     </div>
   );
 }

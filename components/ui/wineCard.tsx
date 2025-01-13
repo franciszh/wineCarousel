@@ -134,7 +134,7 @@ export const WineCard = (props: WineCardProps) => {
             <div className="add-to-cart-wrapper">
                 <button type="button" className="add-to-cart-button" aria-label="Add to cart">
                     <span className="add-to-cart-text">ADD</span>
-                    <Image src={shoppingCart} alt="Shopping cart icon"/>
+                    <Image src={shoppingCart} alt="Shopping cart icon" priority/>
                 </button>
             </div>
         </div>

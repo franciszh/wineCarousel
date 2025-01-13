@@ -6,7 +6,7 @@
         {
           "name": "Prohibition Liquor Company",
           "description": "Prohibition Christmas 500ml",
-          "image": "https://unsplash.it/200/200/?random",
+          "imageSrc": "https://unsplash.it/200/200/?random",
           "tag": "sale",
           "wasPrice": {
             "cashPrice": {
@@ -30,7 +30,7 @@
         {
           "name": "Houraisen",
           "description": "Houraisen Beshi Tokubetsu Junmai Sake 720ml",
-          "image": "https://unsplash.it/200/200/?random",
+          "imageSrc": "https://unsplash.it/200/200/?random",
           "tag": "sale",
           "wasPrice": {
             "cashPrice": {

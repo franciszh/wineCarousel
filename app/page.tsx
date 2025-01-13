@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react';
 import { WineCard } from "@/components/ui/wineCard";
 import { Carousel } from "@/components/ui/carousel"
 import { WineData } from "@/types/wineApi"

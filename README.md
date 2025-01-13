@@ -6,6 +6,8 @@ The task is already deployed to Vecel, be free to access them as follows:
 
 
 ## Getting Started with local build
+Recommanded node version > 20
+
 Firstly install like all other projects:
 ```bash
 npm
@@ -73,4 +75,5 @@ Given the task is designed for 4 - 5 hours, there are a couple of points that I 
 1. The playwright E2E test to test the carousel works as expected at deployed environment for different browsers 
 2. The robusted error handling and suspense optimization in page.tsx
 3. Use styled component instead of tailwind for ui components to load styles as demand
-4. Access Next.js Route handler with a Next.js Server component is an anti-pattern however it's low-hanging fruit for a code test
+4. UI responsiveness is in place however not very well polished to be pixel perfect
+5. Access Next.js Route handler with a Next.js Server component is an anti-pattern however it's low-hanging fruit for a code test

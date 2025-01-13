@@ -49,15 +49,15 @@ describe("WineCard", () => {
 
     it("renders the current points solely if was points is nullish", () => {
         const { getByText } = render(<WineCard {...baseProps} currentPricePoints={5000}/>);
-        const currenPoints = getByText("5000 PTS");
+        const currenPoints = getByText("5,000 PTS");
 
         expect(currenPoints).toBeInTheDocument();
     });
 
     it("renders the current points and was points if was points is not nullish in an accessible way", () => {
         const { getByLabelText } = render(<WineCard {...baseProps} currentPricePoints={5000} wasPricePoints={6000}/>);
-        const currentPoints = getByLabelText("With 5000 PTS now.");
-        const wasPoints = getByLabelText("Discounted from 6000 PTS.");
+        const currentPoints = getByLabelText("With 5,000 PTS now.");
+        const wasPoints = getByLabelText("Discounted from 6,000 PTS.");
 
         expect(currentPoints).toBeInTheDocument();
         expect(wasPoints).toBeInTheDocument();

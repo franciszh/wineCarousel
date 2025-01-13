@@ -60,8 +60,8 @@ const WineCardPointsBlock = (props: WinCardPointsBlockProps) => {
 
     // two lines with currentPricePoints on the top
     if (wasPricePoints) {
-        const currentPoints = `${currentPricePoints} ${pointsUnit}`;
-        const wasPoints = `${wasPricePoints} ${pointsUnit}`;
+        const currentPoints = `${currentPricePoints?.toLocaleString()} ${pointsUnit}`;
+        const wasPoints = `${wasPricePoints.toLocaleString()} ${pointsUnit}`;
         return (
             <>
                 <div className="product-current-points-highlight">
@@ -85,7 +85,7 @@ const WineCardPointsBlock = (props: WinCardPointsBlockProps) => {
                 Or
             </span>
             <span className="product-current-points">
-                {`${currentPricePoints} ${pointsUnit}`}
+                {`${currentPricePoints?.toLocaleString()} ${pointsUnit}`}
             </span>
         </div>
     )

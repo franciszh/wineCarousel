@@ -63,4 +63,10 @@ describe("WineCard", () => {
         expect(wasPoints).toBeInTheDocument();
     });
 
+    it("renders the Add button in an accessible way", () => {
+        const { getByLabelText } = render(<WineCard {...baseProps} currentPricePoints={5000} wasPricePoints={6000}/>);
+        const addButton = getByLabelText("Add to cart");
+
+        expect(addButton).toBeInTheDocument();
+    });
 });

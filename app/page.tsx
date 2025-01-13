@@ -14,10 +14,21 @@ const baseProps = {
   currentPricePoints: 40000
 };
 
+const baseProps1 = {
+  cardLink: "#",
+  productName: "Royal Solute",
+  productDescription: "Royal Salute 21 Year Old Blended Scotch Whisky Miami Polo Edition 700ml (Gift Box)",
+  productImage: "https://unsplash.it/200/200/?random",
+  currentPriceCashAmount: 500,
+  currentPriceCashCurrencyCode: "AUD",
+  currentPricePoints: 40000
+};
+
 export default function WineCarousel() {
   return (
     <div className="main-container">
       <WineCard {...baseProps}/>
+      <WineCard {...baseProps1}/>
     </div>
   );
 }

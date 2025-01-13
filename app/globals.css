@@ -22,10 +22,10 @@ body {
 
 @layer components {
   .main-container {
-    @apply font-[family-name:var(--font-geist-sans)] max-w-[1232px] my-[5%] mx-auto;
+    @apply font-[family-name:var(--font-geist-sans)] max-w-[1232px] my-[5%] mx-auto flex;
   }
   .card-container {
-    @apply cursor-pointer relative bg-[rgb(250,250,250)] w-[284px] h-[557px];
+    @apply cursor-pointer relative bg-[rgb(250,250,250)] w-[284px];
   }
   .wrapping-link {
     @apply no-underline text-[rgb(50,50,50)];
@@ -35,5 +35,62 @@ body {
   }
   .tag-text {
     @apply bg-[rgb(191,244,242)] px-3 text-sm rounded-br-[10px] uppercase truncate max-w-[calc(100%-50px)] tracking-[0.5px] h-[26px] inline-flex items-center text-[rgb(50,50,50)];
+  }
+  .product-detail-wrapper {
+    @apply pt-[26px] no-underline text-[rgb(50,50,50)];
+  }
+  .product-detail-text-wrapper {
+    @apply px-5 pt-[10px] pb-[8px] h-[66px];
+  }
+  .product-name {
+    @apply mx-auto whitespace-nowrap truncate no-underline h-[27px] text-lg font-normal text-[rgb(50,50,50)] leading-[27px];
+  }
+  .product-description {
+    @apply truncate h-[21px] text-sm font-normal leading-[21px] text-[rgb(50,50,50)] w-full;
+  }
+  .product-image-wrapper {
+    @apply flex justify-center h-[240px] py-5;
+  }
+  .product-price-wrapper {
+    @apply flex flex-col flex-wrap px-5 pt-4 pb-5;
+  }
+  .product-cash-wrapper {
+    @apply flex mb-[15px] h-[50px] flex-col flex-wrap justify-end;
+  }
+  .product-was-cash-wrapper {
+    @apply line-through text-sm font-normal leading-[21px] text-[rgb(102,102,102)];
+  }
+  .product-current-cash-highlight {
+    @apply text-lg leading-[21px] font-medium text-[rgb(228,0,0)];
+  }
+  .product-current-cash-normal {
+    @apply text-lg leading-[21px] font-medium text-[rgb(50,50,50)];
+  }
+  .product-points-wrapper {
+    @apply flex mb-[5px] h-[45px] flex-col flex-wrap justify-start;
+  }
+  .product-current-points-highlight {
+    @apply text-base leading-[21px] font-medium text-[rgb(228,0,0)];
+  }
+  .product-current-points-normal {
+    @apply text-base leading-[21px] font-medium text-[rgb(50,50,50)];
+  }
+  .product-current-points-or {
+    @apply text-[rgb(50,50,50)];
+  }
+  .product-current-points {
+    @apply font-bold pl-2;
+  }
+  .product-was-points {
+    @apply line-through text-sm font-normal leading-[21px] text-[rgb(102,102,102)];
+  }
+  .add-to-cart-wrapper {
+    @apply flex absolute bottom-6 right-5;
+  }
+  .add-to-cart-button {
+    @apply w-[90px] h-[48px] rounded-[4px] border-none bg-[rgb(228,0,0)] p-3 px-4 flex justify-center items-center;
+  }
+  .add-to-cart-text {
+    @apply text-base font-medium normal-case normal-nums leading-normal tracking-[1.5px] text-center text-white flex justify-center items-center w-[63px];
   }
 }
